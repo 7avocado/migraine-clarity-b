@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    /* Light, airy palette */
+    --background: 40 20% 98%;
+    --foreground: 220 15% 25%;
+
+    --card: 40 15% 97%;
+    --card-foreground: 220 15% 25%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 25%;
+
+    /* Deep slate for accents */
+    --primary: 220 20% 22%;
+    --primary-foreground: 40 20% 98%;
+
+    /* Subtle warm gray */
+    --secondary: 40 10% 95%;
+    --secondary-foreground: 220 15% 25%;
+
+    --muted: 40 8% 93%;
+    --muted-foreground: 220 10% 50%;
+
+    /* Sage accent */
+    --accent: 160 25% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Terracotta CTA - warm, confident */
+    --cta: 16 55% 50%;
+    --cta-foreground: 0 0% 100%;
+    --cta-hover: 16 55% 44%;
+
+    /* Trust green */
+    --trust: 158 30% 42%;
+    --trust-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 10% 90%;
+    --input: 40 10% 90%;
+    --ring: 220 20% 22%;
+
+    --radius: 0.5rem;
+
+    /* Typography */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+
+    /* Shadows - very subtle */
+    --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.02);
+    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.03), 0 1px 2px -1px rgb(0 0 0 / 0.02);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.04), 0 2px 4px -2px rgb(0 0 0 / 0.03);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.04), 0 4px 6px -4px rgb(0 0 0 / 0.03);
+
+    /* Sidebar */
+    --sidebar-background: 40 15% 97%;
+    --sidebar-foreground: 220 15% 25%;
+    --sidebar-primary: 220 20% 22%;
+    --sidebar-primary-foreground: 40 20% 98%;
+    --sidebar-accent: 40 8% 93%;
+    --sidebar-accent-foreground: 220 15% 25%;
+    --sidebar-border: 40 10% 90%;
+    --sidebar-ring: 220 20% 22%;
+  }
+
+  .dark {
+    --background: 220 20% 8%;
+    --foreground: 220 14% 96%;
+
+    --card: 220 18% 11%;
+    --card-foreground: 220 14% 96%;
+
+    --popover: 220 20% 8%;
+    --popover-foreground: 220 14% 96%;
+
+    --primary: 220 14% 96%;
+    --primary-foreground: 220 20% 8%;
+
+    --secondary: 220 16% 15%;
+    --secondary-foreground: 220 14% 96%;
+
+    --muted: 220 16% 15%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 160 30% 50%;
+    --accent-foreground: 220 20% 8%;
+
+    --cta: 16 55% 55%;
+    --cta-foreground: 0 0% 100%;
+    --cta-hover: 16 55% 48%;
+
+    --trust: 158 35% 45%;
+    --trust-foreground: 220 20% 8%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 220 14% 96%;
+
+    --border: 220 16% 18%;
+    --input: 220 16% 18%;
+    --ring: 220 14% 80%;
+
+    --sidebar-background: 220 18% 11%;
+    --sidebar-foreground: 220 14% 96%;
+    --sidebar-primary: 220 14% 96%;
+    --sidebar-primary-foreground: 220 20% 8%;
+    --sidebar-accent: 220 16% 15%;
+    --sidebar-accent-foreground: 220 14% 96%;
+    --sidebar-border: 220 16% 18%;
+    --sidebar-ring: 220 14% 80%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-serif);
+    @apply text-foreground font-medium tracking-normal;
+  }
+
+  h4, h5, h6 {
+    font-family: var(--font-sans);
+    @apply text-foreground font-medium tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Subtle section divider */
+  .section-divider {
+    @apply border-t border-border;
+  }
+
+  /* Modern fade animations */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in-delay-1 {
+    animation: fadeIn 0.6s ease-out 0.1s forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in-delay-2 {
+    animation: fadeIn 0.6s ease-out 0.2s forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in-delay-3 {
+    animation: fadeIn 0.6s ease-out 0.3s forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
